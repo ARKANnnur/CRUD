@@ -1,23 +1,29 @@
-// ambil elemen2 yang di butuhkan
-var keyword = document.getElementById('keyword');
-var tombolCari = document.getElementById('tombol-cari');
-var container = document.getElementById('container');
+$(document).ready(function() {
+    // hilangkan tombol dari
+    $('#tombol-cari').hide();
 
-// tambahkan event ketika keyword di tulis
-keyword.addEventListener('keyup', function()  {
-    
-    // buat object ajax
-    var xhr = new XMLHttpRequest();
 
-    // cek kesiapan ajax
-    xhr.onreadystatechange = function() {
-        if( xhr.readyState == 4 && xhr.status == 200 ){
-            container.innerHTML = xhr.responseText;
-        }
-    }
+    // event ketika keyword di tulis
+    $('#keyword').on('keyup', function() {
+        // munculkan icon loading
+        $('.loader').show();
 
-    // eksekusi ajax
-    xhr.open('GET', 'ajax/waifu.php?keyword=' + keyword.value, true);
-    xhr.send();
+        // ajax menggunakan load
+    //     $('#container').load('ajax/waifu.php?keyword=' + $('#keyword').val());
+    // });
 
+
+    // $.get()
+        $.get('ajax/waifu.php?keyword=' + $('#keyword').val(), function(data) {
+
+            $('#container').html(data);
+            $('.loader').hide();
+
+        });
+
+
+
+
+
+    });
 });

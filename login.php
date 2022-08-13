@@ -104,5 +104,6 @@ $row = mysqli_fetch_assoc($result);
         </ul>
 
     </form>
+<a href="registrasi.php">registrasi</a>
 </body>
 </html>

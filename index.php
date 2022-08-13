@@ -44,6 +44,14 @@ if( isset($_POST["cari"]) ) {
         a {
             text-decoration: none;
         }
+        .loader {
+            max-width: 100px;
+            position: absolute;
+            z-index: -1;
+            top: 320px;
+            left: 45%;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -62,7 +70,9 @@ if( isset($_POST["cari"]) ) {
         placeholder="masukan:pencarian" autocomplete="off" 
         id="keyword">
 
-        <button type="submit" name="cari" id="tombol-cari">Cari</button>
+        <button hidden type="submit" name="cari" id="tombol-cari">Cari</button>
+
+        <img src="img/loading.gif" class="loader">
 
     </form>
 </center><br>
@@ -125,7 +135,7 @@ if( isset($_POST["cari"]) ) {
         <?php endforeach ;?>
 </table>
 </div>
-
+<script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
