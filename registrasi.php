@@ -54,5 +54,6 @@ if( isset($_POST["signup"]) ){
     </ul>
 
 </form></center>  
+<a href="login.php">login</a>
 </body>
 </html>
